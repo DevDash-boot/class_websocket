@@ -1,4 +1,4 @@
-package com.tenco.class_websocket_v1.websocket;
+package com.tenco.class_websocket_v1.stomp;
 
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -14,10 +14,19 @@ public class Chat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(nullable = false)
+    private Integer roomId;
+
+    @Column(nullable = false)
+    private String sender;
+
     private String msg;
 
     @Builder
-    public Chat(String msg) {
+    public Chat(Integer id, String msg, String sender, Integer roomId) {
+        this.id = id;
         this.msg = msg;
+        this.sender = sender;
+        this.roomId = roomId;
     }
 }
