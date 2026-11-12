@@ -83,7 +83,6 @@
     const chatForm = document.getElementById('chatForm');
     const msgInput = document.getElementById('msg');
 
-
     // 받은 메세지를 화면 맨 아래에 추가한다.
     function appendMessage(msg) {
         const div = document.createElement("div");
@@ -103,8 +102,6 @@
     // tip : 페이지가 http 면  ws://, https 면 wss:// 로 연결한다.
     const protocol = location.protocol === 'https:' ? 'wss://' : 'ws://';
     const socket = new WebSocket(protocol + location.host + '/ws-chat');
-    // TODO 삭제 예정
-    console.log("주소 확인 :" , protocol + location.host + '/ws-chat');
 
     // 2. 연결이 열리면 (101) 확인
     socket.onopen = () => {
